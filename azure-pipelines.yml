@@ -8,6 +8,7 @@ trigger:
 
 pool:
   name: MeuDocker
+  agent: WSL
   demands:
   - msbuild
   - visualstudio
