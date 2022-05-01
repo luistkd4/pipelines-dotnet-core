@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: MeuDocker
+  name: LAPTOP
   demands:
   - Agent.Name -equals WSL
 
@@ -30,3 +30,11 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Miguel(72505977-61ad-45a5-83ab-7a33ffbd2080)'
+    appType: 'webAppLinux'
+    appName: 'meuappsvc'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'DOTNETCORE|5.0'
