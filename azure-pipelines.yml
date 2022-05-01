@@ -8,11 +8,8 @@ trigger:
 
 pool:
   name: MeuDocker
-  agent: WSL
   demands:
-  - msbuild
-  - visualstudio
-  - vstest
+  - Agent.Name -equals WSL
 
 variables:
   buildConfiguration: 'Release'
